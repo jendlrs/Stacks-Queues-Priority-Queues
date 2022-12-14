@@ -10,9 +10,13 @@ class Queue:
     def __iter__(self):
         while len(self) > 0:
             yield self.dequeue()
-            
+
     def enqueue(self, element):
         self._elements.append(element) #Adding an element
 
     def dequeue(self):
         return self._elements.popleft() #Deleting an element
+
+class Stack(Queue):
+    def dequeue(self):
+        return self._elements.pop()
