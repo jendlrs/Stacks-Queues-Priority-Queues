@@ -6,8 +6,19 @@ from queues import Stack
 
 lifo = []
 
+#Adding Elements
 lifo.append("1st")
 lifo.append("2nd")
 lifo.append("3rd")
+
+print(len(lifo))
+
+#Removing Elements
+lifo.pop()
+'3rd'
+lifo.pop()
+'2nd'
+lifo.pop()
+'1st'
 
 print(len(lifo))
