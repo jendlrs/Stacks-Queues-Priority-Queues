@@ -8,15 +8,21 @@ for element in fifo:
 
 print(len(fifo)) #Updated number of elements
 
+#Other Way
+
 #Adding Elements
-#fifo.enqueue("1st") 
-#fifo.enqueue("2nd")
-#fifo.enqueue("3rd")
+fifo.enqueue("1st") 
+fifo.enqueue("2nd")
+fifo.enqueue("3rd")
+
+print(len(fifo))
 
 #Removing Elements
-#fifo.dequeue()
-#'1st'
-#fifo.dequeue()
-#'2nd'
-#fifo.dequeue()
-#'3rd'
+fifo.dequeue()
+'1st'
+fifo.dequeue()
+'2nd'
+fifo.dequeue()
+'3rd'
+
+print(len(fifo))
