@@ -1,9 +1,11 @@
 from queues import Stack
 
-#lifo = Stack("1st", "2nd", "3rd")
-#for element in lifo:
- #   print(element)
+lifo = Stack("1st", "2nd", "3rd")
 
+for element in lifo:
+    print(element)
+
+print(len(lifo))
 lifo = []
 
 #Adding Elements
