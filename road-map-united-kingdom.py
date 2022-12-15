@@ -32,21 +32,33 @@ breadth_first_search as bfs,
  #   print(f"{weights['distance']:>3} miles, {neighbor.name}")
 
 #Finding the places in UK that has been granted city status in 2oth century: ")
-def is_twentieth_century(year):
-   return year and 1901 <= year <= 2000
+#def is_twentieth_century(year):
+ #  return year and 1901 <= year <= 2000
 
 #Sorted Neighbors and visit first the cities with higher latitude
-def order(neighbors):
-    def by_latitude(city):
-        return city.latitude
-    return iter(sorted(neighbors, key=by_latitude, reverse=True))
+#def order(neighbors):
+ #   def by_latitude(city):
+  #      return city.latitude
+   # return iter(sorted(neighbors, key=by_latitude, reverse=True))
     
+#nodes, graph = load_graph("roadmap.dot", City.from_dict)
+#for node in nx.bfs_tree(graph, nodes["edinburgh"], sort_neighbors=order):
+ #   print("📍", node.name)
+  #  if is_twentieth_century(node.year):
+   #     print("Found:", node.name, node.year)
+    #    break
+#else:
+ #   print("Not found")
+
+#breadth-first search and traversal implementations
+def is_twentieth_century(city):
+    return city.year and 1901 <= city.year <= 2000
+
 nodes, graph = load_graph("roadmap.dot", City.from_dict)
-for node in nx.bfs_tree(graph, nodes["edinburgh"], sort_neighbors=order):
-    print("📍", node.name)
-    if is_twentieth_century(node.year):
-        print("Found:", node.name, node.year)
-        break
-else:
-    print("Not found")
+city = bfs(graph, nodes["edinburgh"], is_twentieth_century)
+print(city.name)
+
+
+#for city in breadth_first_traverse(graph, nodes["edinburgh"]):
+ #   print(city.name)
 
