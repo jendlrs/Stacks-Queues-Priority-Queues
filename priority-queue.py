@@ -1,5 +1,4 @@
 from queues import PriorityQueue
-from dataclasses import dataclass
 
 CRITICAL = 3
 IMPORTANT = 2
