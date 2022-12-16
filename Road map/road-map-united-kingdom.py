@@ -6,6 +6,12 @@ breadth_first_search as bfs,
 )
 from graph import shortest_path
 from graph import connected
+from graph import (
+    City,
+    load_graph,
+    depth_first_traverse,
+    depth_first_search as dfs,
+)
 
 #graph = nx.nx_agraph.read_dot("roadmap.dot")
 #nodes, graph = load_graph("roadmap.dot", City.from_dict)
@@ -89,15 +95,23 @@ nodes, graph = load_graph("roadmap.dot", City.from_dict)
 
 #print(connected(graph, nodes["belfast"], nodes["derry"]))
 
-def is_twentieth_century(year):
-    return year and 1901 <= year <= 2000
+#Depth-First Search Using LIFO Queue
+
+#def is_twentieth_century(year):
+ #   return year and 1901 <= year <= 2000
+
+#nodes, graph = load_graph("roadmap.dot", City.from_dict)
+#for node in nx.dfs_tree(graph, nodes["edinburgh"]):
+ #   print("📍", node.name)
+  #  if is_twentieth_century(node.year):
+   #     print("Found:", node.name, node.year)
+    #    break
+#else:
+ #   print("Not found")
+
+def is_twentieth_century(city):
+    return city.year and 1901 <= city.year <= 2000
 
 nodes, graph = load_graph("roadmap.dot", City.from_dict)
-for node in nx.dfs_tree(graph, nodes["edinburgh"]):
-    print("📍", node.name)
-    if is_twentieth_century(node.year):
-        print("Found:", node.name, node.year)
-        break
-else:
-    print("Not found")
-
+city = dfs(graph, nodes["edinburgh"], is_twentieth_century)
+print(city.name)
