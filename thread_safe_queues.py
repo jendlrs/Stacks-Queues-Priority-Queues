@@ -144,6 +144,9 @@ def main(args):
         Consumer(args.consumer_speed, buffer) for _ in range(args.consumers)
     ]
 
+    view = View(buffer, producers, consumers)
+    view.animate()
+    
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-q", "--queue", choices=QUEUE_TYPES, default="fifo")
