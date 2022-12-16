@@ -2,6 +2,8 @@ from typing import NamedTuple
 import networkx as nx
 from queues import Queue, Stack
 from collections import deque
+from math import inf as infinity
+from queues import MutableMinHeap, Queue, Stack
 
 class City(NamedTuple):
     name: str
@@ -114,3 +116,12 @@ def search(traverse, graph, source, predicate, order_by=None):
     for node in traverse(graph, source, order_by):
         if predicate(node):
             return node
+
+def dijkstra_shortest_path(graph, source):
+    previous = {}
+    visited = set()
+
+    unvisited = MutableMinHeap()
+    for node in graph.nodes:
+        unvisited[node] = infinity
+    unvisited[source] = 0
