@@ -1,6 +1,7 @@
 import argparse
 from queue import LifoQueue, PriorityQueue, Queue
 import threading
+
 from random import randint
 from time import sleep
 
@@ -36,7 +37,7 @@ class Worker(threading.Thread):
         self.product = None
         self.working = False
         self.progress = 0
-        
+
 def main(args):
     buffer = QUEUE_TYPES[args.queue]()
 
