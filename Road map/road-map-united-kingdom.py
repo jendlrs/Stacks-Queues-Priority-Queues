@@ -5,6 +5,7 @@ breadth_first_traverse,
 breadth_first_search as bfs,
 )
 from graph import shortest_path
+from graph import connected
 
 #graph = nx.nx_agraph.read_dot("roadmap.dot")
 #nodes, graph = load_graph("roadmap.dot", City.from_dict)
@@ -64,22 +65,26 @@ from graph import shortest_path
 #Enumerate the shortest paths between two cities.
 nodes, graph = load_graph("roadmap.dot", City.from_dict)
 
-city1 = nodes["aberdeen"]
-city2 = nodes["perth"]
+#city1 = nodes["aberdeen"]
+#city2 = nodes["perth"]
 
-for i, path in enumerate(nx.all_shortest_paths(graph, city1, city2), 1):
-    print(f"{i}.", " → ".join(city.name for city in path))
+#for i, path in enumerate(nx.all_shortest_paths(graph, city1, city2), 1):
+ #   print(f"{i}.", " → ".join(city.name for city in path))
 
-" → ".join(city.name for city in shortest_path(graph, city1, city2))
+#" → ".join(city.name for city in shortest_path(graph, city1, city2))
 
 #function for getting the reverse lattitude of the city.
-def by_latitude(city):
-    return -city.latitude
+#def by_latitude(city):
+ #   return -city.latitude
 
 #Path that prioritize the neighbors with a higher latitude
-" → ".join(
-    city.name
-    for city in shortest_path(graph, city1, city2, by_latitude)
-)
+#" → ".join(
+ #   city.name
+  #  for city in shortest_path(graph, city1, city2, by_latitude)
+#)
 
+from graph import connected
+print(connected(graph, nodes["belfast"], nodes["glasgow"]))
+
+print(connected(graph, nodes["belfast"], nodes["derry"]))
     
