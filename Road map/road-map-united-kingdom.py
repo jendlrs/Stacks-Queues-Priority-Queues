@@ -83,8 +83,21 @@ nodes, graph = load_graph("roadmap.dot", City.from_dict)
   #  for city in shortest_path(graph, city1, city2, by_latitude)
 #)
 
-from graph import connected
-print(connected(graph, nodes["belfast"], nodes["glasgow"]))
+#Connected or Not
+#from graph import connected
+#print(connected(graph, nodes["belfast"], nodes["glasgow"]))
 
-print(connected(graph, nodes["belfast"], nodes["derry"]))
-    
+#print(connected(graph, nodes["belfast"], nodes["derry"]))
+
+def is_twentieth_century(year):
+    return year and 1901 <= year <= 2000
+
+nodes, graph = load_graph("roadmap.dot", City.from_dict)
+for node in nx.dfs_tree(graph, nodes["edinburgh"]):
+    print("📍", node.name)
+    if is_twentieth_century(node.year):
+        print("Found:", node.name, node.year)
+        break
+else:
+    print("Not found")
+
