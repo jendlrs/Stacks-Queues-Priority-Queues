@@ -79,6 +79,13 @@ class View:
             while True:
                 live.update(self.render())
 
+    def render(self):
+
+        match self.buffer:
+            case PriorityQueue():
+                title = "Priority Queue"
+                products = map(str, reversed(list(self.buffer.queue)))
+
 def main(args):
     buffer = QUEUE_TYPES[args.queue]()
 
