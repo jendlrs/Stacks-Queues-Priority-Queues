@@ -109,9 +109,15 @@ nodes, graph = load_graph("roadmap.dot", City.from_dict)
 #else:
  #   print("Not found")
 
+#Order of Cities now follows a linear path
 def is_twentieth_century(city):
     return city.year and 1901 <= city.year <= 2000
 
 nodes, graph = load_graph("roadmap.dot", City.from_dict)
 city = dfs(graph, nodes["edinburgh"], is_twentieth_century)
 print(city.name)
+
+#For loop to iterate the neighboring cities using depth first traverse function
+print()
+for city in depth_first_traverse(graph, nodes["edinburgh"]):
+    print(city.name)
