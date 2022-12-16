@@ -162,6 +162,12 @@ def parse_args():
     parser.add_argument("-cs", "--consumer-speed", type=int, default=1)
     return parser.parse_args()
 
+    #To test queue lifo
+    #Enter python thread_safe_queues.py --queue lifo in shell
+
+    #To test queue heap
+    #Enter python thread_safe_queues.py --queue heap in shell
+
 if __name__ == "__main__":
     try:
         main(parse_args())
