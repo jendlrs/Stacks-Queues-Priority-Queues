@@ -85,7 +85,10 @@ class View:
             case PriorityQueue():
                 title = "Priority Queue"
                 products = map(str, reversed(list(self.buffer.queue)))
-
+            case LifoQueue():
+                title = "Stack"
+                products = list(self.buffer.queue)
+                
 def main(args):
     buffer = QUEUE_TYPES[args.queue]()
 
