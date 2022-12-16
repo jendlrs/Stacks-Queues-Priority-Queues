@@ -94,7 +94,7 @@ class View:
             case _:
                 title = products = ""
         
-        #For displaying rows
+    #For displaying rows and panel
         rows = [
             Panel(f"[bold]{title}:[/] {', '.join(products)}", width=82)
         ]
